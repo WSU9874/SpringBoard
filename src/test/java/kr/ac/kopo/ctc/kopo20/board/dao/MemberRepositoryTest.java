@@ -74,23 +74,23 @@ public class MemberRepositoryTest {
       System.out.println(member.toString());
    }
    
-   // UPDATE
-//   @Test
-//   @Order(3)
-//   public void updateLazy() {
-//      Member member = memberRepository.findById(116);
-//      member.setAge(31);
-//      member.setName("lee");
-//      memberRepository.save(member);
-//   }
+    //UPDATE
+   @Test
+   @Order(3)
+   public void updateLazy() {
+      Member member = memberRepository.findById(116);
+      member.setAge(31);
+      member.setName("lee");
+      memberRepository.save(member);
+   }
    
    
    //Delete
-//   @Test
-//   @Order(4)
-//   public void deleteAll() {
-//      memberRepository.deleteAll();
-//   }
+   @Test
+   @Order(4)
+   public void deleteAll() {
+      memberRepository.deleteAll();
+   }
    
 
 }

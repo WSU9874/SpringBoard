@@ -24,31 +24,7 @@ public class Member {
 	private String name;
 
 	@Column
-	private int age;
-	
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public int getAge() {
-		return age;
-	}
-
-	public void setAge(int age) {
-		this.age = age;
-	}
+	private int age;	
 
 	//eager - 메소드가 실행되면 모든 정보 가져오기
 	//lazy - select 된 정보만 찾아서 가져와서 컬렉션 풀에 넣어놓고 정보 가져오는거 
@@ -88,6 +64,29 @@ public class Member {
 			result += "\n" + p.toString();
 		}
 		return result;
+	}
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
 	}
 
 }
