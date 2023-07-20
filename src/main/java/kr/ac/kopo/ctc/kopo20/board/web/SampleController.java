@@ -1,9 +1,8 @@
 package kr.ac.kopo.ctc.kopo20.board.web;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -12,8 +11,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import kr.ac.kopo.ctc.kopo20.board.dao.SampleMapper;
 import kr.ac.kopo.ctc.kopo20.board.dao.SampleRepository;
+import kr.ac.kopo.ctc.kopo20.board.dao.mapper.SampleCondition;
+import kr.ac.kopo.ctc.kopo20.board.dao.mapper.SampleMapper;
 import kr.ac.kopo.ctc.kopo20.board.domain.Sample;
 
 @Controller
@@ -24,7 +24,7 @@ public class SampleController {
 	
 	@Autowired
 	private SampleMapper sampleMapper;
-
+	
 	@RequestMapping(value = "/sample1")
 //우리는 특정 uri로 요청을 보내면 Controller에서 어떠한 방식으로 처리할지 정의를 한다.
 //이때 들어온 요청을 특정 메서드와 매핑하기 위해 사용하는 것이 @RequestMapping이다.
@@ -45,8 +45,8 @@ public class SampleController {
 	@ResponseBody // 자바객체를 HTTP요청의 바디내용으로 매핑하여 클라이언트로 전송한다
 	public Page<Sample> list2(Model model) {
 
-		Map<String, Object> filter = new HashMap<String, Object>();
-		filter.put("title", "a");
+//		Map<String, Object> filter = new HashMap<String, Object>();
+//		filter.put("title", "a");
 
 		PageRequest pageable = PageRequest.of(0, 10);
 //      Page<Sample> page =
@@ -55,15 +55,24 @@ public class SampleController {
 		return page;
 	}
 	
-	
 	//===================================================================================
-
 
 	@RequestMapping(value = "/sample3")
 	@ResponseBody
 	public List<Sample> list3() {
-		List<Sample> list3 = sampleMapper.findAllEUIYEOB();
+		List<Sample> list3 = sampleMapper.findAll();
 		return list3;
 	}
+	
+	@RequestMapping(value = "/sample4")
+	@ResponseBody	
+	public List<Sample> findAllByCondition() {
+		SampleCondition sampleCondition = new SampleCondition();
+		sampleCondition.setName("a");
+		RowBounds rowBounds = new RowBounds(0,10);
+		List<Sample> list4 = sampleMapper.findAllByCondition(sampleCondition, rowBounds);
+		return list4;
+	}
+	
 
 }
