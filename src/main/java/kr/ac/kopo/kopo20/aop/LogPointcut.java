@@ -14,19 +14,19 @@ import org.springframework.stereotype.Component;
 @Component
 public class LogPointcut {
 	
-	@Pointcut("Exception(* kr.ac.kopo.ctc.kopo20.service.*.*PointcutBefore(..))")
+	@Pointcut("execution(* kr.ac.kopo.ctc.kopo20.board.service.*.*PointcutBefore(..))")
 	private void pointcutBeforeHandler() {}
 	
-	@Pointcut("Exception(* kr.ac.kopo.ctc.kopo20.service.*.*PointcutAfter(..))")
+	@Pointcut("execution(* kr.ac.kopo.ctc.kopo20.board.service.*.*PointcutAfter(..))")
 	private void pointcutAftereHandler() {}
 	
-	@Pointcut("Exception(* kr.ac.kopo.ctc.kopo20.service.*.*PointcutAfterReturning(..))")
+	@Pointcut("execution(* kr.ac.kopo.ctc.kopo20.board.service.*.*PointcutAfterReturning(..))")
 	private void pointcutAfterReturningHandler() {}
 	
-	@Pointcut("Exception(* kr.ac.kopo.ctc.kopo20.service.*.*PointcutAfterThrowing(..))")
+	@Pointcut("execution(* kr.ac.kopo.ctc.kopo20.board.service.*.*PointcutAfterThrowing(..))")
 	private void pointcutAfterThrowingHandler() {}
 	
-	@Pointcut("Exception(* kr.ac.kopo.ctc.kopo20.service.*.*PointcutAfterAround(..))")
+	@Pointcut("execution(* kr.ac.kopo.ctc.kopo20.board.service.*.*PointcutAfterAround(..))")
 	private void pointcutAfterAroundHandler() {}
 	
 	@Before("pointcutBeforeHandler()")

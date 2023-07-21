@@ -2,6 +2,5 @@
 <html>
 <body>
 	Hello, ${name}! <br/>
-	sum: ${sum}!
 </body>
 </html>
