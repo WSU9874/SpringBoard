@@ -35,9 +35,7 @@ public class HelloRestController {
 			hellos.add(hello1);
 			hellos.add(hello2);
 		
-		return ResponseEntity.ok(hellos);
-		
-		
+		return ResponseEntity.ok(hellos);		
 	}
 	
 	@RequestMapping(value="/hello2")
@@ -62,9 +60,7 @@ public class HelloRestController {
 			hellos.add(hello1);
 			hellos.add(hello2);
 		
-		return hellos;
-		
-		
+		return hellos;		
 	}
 
 }
